@@ -1,6 +1,6 @@
 def calculate_average(nums):
     if not nums:  # Проверка на пустой список
-        return "Список пуст"  # Возвращаем текст для пользователя
+        return 0  # Возвращаем 0, если список пустой
     total = sum(nums)
     count = len(nums)
     average = total / count
