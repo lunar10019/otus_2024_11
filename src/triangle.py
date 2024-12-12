@@ -18,8 +18,6 @@ class Triangle(Figure):
         self.side_b = side_b
         self.side_c = side_c
 
-    @property
-    def area(self) -> int:
         # Проверка на возможность существования треугольника
         if (
             self.side_a + self.side_b <= self.side_c
@@ -28,6 +26,8 @@ class Triangle(Figure):
         ):
             raise ValueError("A triangle with these sides does not exist")
 
+    @property
+    def area(self) -> int:
         # Полупериметр
         s = (self.side_a + self.side_b + self.side_c) / 2
 
