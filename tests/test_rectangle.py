@@ -51,18 +51,14 @@ def test_rectangle_perimeter_negative(side_a, side_b):
 
 
 # func add_area
-circle = Circle(radius=10)
-
-
 @pytest.mark.parametrize(
-    ("other_class", "add_area", "side_a", "side_b"),
-    [(circle, 1538, 12, 102)],
-    ids=["other class"],
+    ("expected_area", "side_a", "side_b"), [(1538, 12, 102)], ids=["integer"]
 )
-def test_rectangle_add_area_positive(other_class, add_area, side_a, side_b):
+def test_rectangle_add_area_positive(expected_area, side_a, side_b):
+    c = Circle(radius=10)
     r = Rectangle(side_a, side_b)
-    total_sum = r.add_area(other_class)
-    assert total_sum == add_area, f"Rectangle and circle areas must be {total_sum}"
+    total_sum = r.add_area(c)
+    assert total_sum == expected_area, f"Rectangle and circle areas must be {total_sum}"
 
 
 @pytest.mark.parametrize(

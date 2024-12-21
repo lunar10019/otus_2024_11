@@ -75,18 +75,16 @@ def test_triangle_perimeter_negative(side_a, side_b, side_c):
 
 
 # func add_area
-circle = Circle(radius=10)
-
-
 @pytest.mark.parametrize(
-    ("other_class", "add_area", "side_a", "side_b", "side_c"),
-    [(circle, 348, 12, 10, 21)],
-    ids=["other class"],
+    ("expected_area", "side_a", "side_b", "side_c"),
+    [(348, 12, 10, 21)],
+    ids=["integer"],
 )
-def test_triangle_add_area_positive(other_class, add_area, side_a, side_b, side_c):
+def test_triangle_add_area_positive(expected_area, side_a, side_b, side_c):
+    c = Circle(radius=10)
     t = Triangle(side_a, side_b, side_c)
-    total_sum = t.add_area(other_class)
-    assert total_sum == add_area, f"Triangle and circle areas must be {total_sum}"
+    total_sum = t.add_area(c)
+    assert total_sum == expected_area, f"Triangle and circle areas must be {total_sum}"
 
 
 @pytest.mark.parametrize(

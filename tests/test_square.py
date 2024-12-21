@@ -51,16 +51,12 @@ def test_square_perimeter_negative(side_a):
 
 
 # func add_area
-circle = Circle(radius=10)
-
-
-@pytest.mark.parametrize(
-    ("other_class", "add_area", "side_a"), [(circle, 414, 10)], ids=["other class"]
-)
-def test_square_add_area_positive(other_class, add_area, side_a):
+@pytest.mark.parametrize(("expected_area", "side_a"), [(414, 10)], ids=["integer"])
+def test_square_add_area_positive(expected_area, side_a):
+    c = Circle(radius=10)
     s = Square(side_a)
-    total_sum = s.add_area(other_class)
-    assert total_sum == add_area, f"Square and circle areas must be {total_sum}"
+    total_sum = s.add_area(c)
+    assert total_sum == expected_area, f"Square and circle areas must be {total_sum}"
 
 
 @pytest.mark.parametrize("other_class", [0, -100], ids=["zero value", "negative value"])
