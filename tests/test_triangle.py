@@ -1,7 +1,7 @@
 import pytest
 
-from src.triangle import Triangle
-from src.circle import Circle
+from src.figures.triangle import Triangle
+from src.figures.circle import Circle
 
 
 # func area
